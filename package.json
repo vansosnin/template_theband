@@ -1,0 +1,26 @@
+{
+  "name": "theband",
+  "version": "0.0.1",
+  "description": "HTML template",
+  "main": "index.html",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vansosnin/template_theband.git"
+  },
+  "keywords": [
+    "html",
+    "css",
+    "js",
+    "javascript",
+    "sass",
+    "template"
+  ],
+  "author": "Ivan Sosnin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vansosnin/template_theband/issues"
+  },
+  "homepage": "https://github.com/vansosnin/template_theband#readme"
+}
