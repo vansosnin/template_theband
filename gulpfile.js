@@ -15,6 +15,7 @@ const config = {
         destFile: 'styles.css'
     },
     js: {
+        cacheKey: 'js',
         src: 'src/js/**/*.js',
         destFile: 'script.js'
     },
@@ -72,12 +73,38 @@ gulp.task('sass:comb', () => (
         .pipe(gulp.dest(''))
 ));
 
-gulp.task('sass', ['sass:comb', 'sass:deploy']);
+// Javascript
+
+gulp.task('js:build', () => (
+    gulp.src(config.js.src, { base: './' })
+        .pipe(plugins.cached(config.js.cacheKey, { optimizeMemory: true }))
+        .pipe(plugins.sourcemaps.init({ loadMaps: true }))
+        .pipe(plugins.concat(config.js.destFile))
+        .pipe(plugins.sourcemaps.write())
+        .pipe(gulp.dest(config.dest))
+));
+
+gulp.task('js:deploy', () => (
+    gulp.src(config.js.src, { base: './' })
+        .pipe(plugins.uglify())
+        .pipe(plugins.concat(config.js.destFile))
+        .pipe(gulp.dest(config.dest))
+));
+
+// Common
+
+gulp.task('deploy', ['sass:deploy', 'js:deploy']);
 
 gulp.task('watch', () => {
     gulp.watch(config.styles.src, ['sass:build'], evt => {
         if (evt.type === 'deleted') {
             delete plugins.cached.caches[config.styles.cacheKey][evt.path];
+        }
+    });
+
+    gulp.watch(config.styles.src, ['js:build'], evt => {
+        if (evt.type === 'deleted') {
+            delete plugins.cached.caches[config.js.cacheKey][evt.path];
         }
     });
 });
