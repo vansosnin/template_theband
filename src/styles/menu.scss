@@ -1,0 +1,13 @@
+@import "./placeholders";
+
+.menu {
+    @extend %as-lora-font;
+}
+
+.menu-item {
+    position: relative;
+
+    &.as-active {
+        &:after {}
+    }
+}
