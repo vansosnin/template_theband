@@ -10,7 +10,7 @@ const plugins = require('gulp-load-plugins')({
 const config = {
     styles: {
         cacheKey: 'sass',
-        src: 'src/styles/**/*.{scss, sass}',
+        src: 'src/styles/**/[a-zA-Z0-9]*.{scss, sass}',
         destFile: 'styles.css'
     },
     js: {
