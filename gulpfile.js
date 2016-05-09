@@ -29,7 +29,6 @@ const config = {
 
 gulp.task('sass:build', () => (
     gulp.src(config.styles.src, { base: './' })
-        .pipe(plugins.cached(config.styles.cacheKey, { optimizeMemory: true }))
         .pipe(plugins.sass({ sourcemap: true }))
         .pipe(plugins.sourcemaps.init({ loadMaps: true }))
         .pipe(plugins.postcss([
@@ -80,7 +79,6 @@ gulp.task('sass:comb', () => (
 
 gulp.task('js:build', () => (
     gulp.src(config.js.src, { base: './' })
-        .pipe(plugins.cached(config.js.cacheKey, { optimizeMemory: true }))
         .pipe(plugins.sourcemaps.init({ loadMaps: true }))
         .pipe(plugins.concat(config.js.destFile))
         .pipe(plugins.sourcemaps.write())
@@ -136,15 +134,7 @@ gulp.task('fonts:copy', () => (
 // Common
 
 gulp.task('watch', () => {
-    gulp.watch(config.styles.src, ['sass:build'], evt => {
-        if (evt.type === 'deleted') {
-            delete plugins.cached.caches[config.styles.cacheKey][evt.path];
-        }
-    });
+    gulp.watch(config.styles.src, ['sass:build']);
 
-    gulp.watch(config.styles.src, ['js:build'], evt => {
-        if (evt.type === 'deleted') {
-            delete plugins.cached.caches[config.js.cacheKey][evt.path];
-        }
-    });
+    gulp.watch(config.styles.src, ['js:build']);
 });
