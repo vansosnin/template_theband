@@ -1,6 +1,5 @@
 ﻿const gulp = require('gulp');
 const autoprefixer = require('autoprefixer');
-const postcssScss = require('postcss-scss');
 const postcssSorting = require('postcss-sorting');
 const perfectionist = require('perfectionist');
 const plugins = require('gulp-load-plugins')({
@@ -19,7 +18,11 @@ const config = {
         src: 'src/js/**/*.js',
         destFile: 'script.js'
     },
-    dest: 'dest'
+    img: {
+        src: 'src/styles/img/**/*.png',
+        destFile: 'sprite.png'
+    },
+    dest: 'dist'
 };
 
 // Styles
@@ -69,7 +72,7 @@ gulp.task('sass:comb', () => (
                     'sort-order': require('./csscomb.json')['sort-order'],
                     'empty-lines-between-children-rules': 1
                 })
-            ], { syntax: postcssScss }))
+            ], { syntax: require('postcss-scss') }))
         .pipe(gulp.dest(''))
 ));
 
@@ -91,9 +94,46 @@ gulp.task('js:deploy', () => (
         .pipe(gulp.dest(config.dest))
 ));
 
-// Common
+// Images and files
 
-gulp.task('deploy', ['sass:deploy', 'js:deploy']);
+gulp.task('img:optimize', () => (
+    gulp.src(config.img.src, { base: './' })
+        .pipe(plugins.imagemin())
+        .pipe(gulp.dest(''))
+));
+
+gulp.task('img:copy', () => (
+    gulp.src('./src/styles/img/*.png')
+        .pipe(gulp.dest('./dist/img'))
+));
+
+gulp.task('img:sprite', () => {
+        const fs = require('fs');
+        const postcss = require('postcss');
+        const sprites = require('postcss-sprites').default;
+
+        const css = fs.readFileSync('./dist/styles.css', 'utf8');
+        const opts = {
+        stylesheetPath: './dist',
+        spritePath: './dist'
+    };
+
+    postcss([sprites(opts)])
+        .process(css, {
+            from: './dist/styles.css',
+            to: './dist/styles.css'
+        })
+        .then(function(result) {
+            fs.writeFileSync('./dist/styles.css', result.css);
+        });
+});
+
+gulp.task('fonts:copy', () => (
+    gulp.src('./src/styles/fonts/*.ttf')
+        .pipe(gulp.dest('./dist/fonts'))
+));
+
+// Common
 
 gulp.task('watch', () => {
     gulp.watch(config.styles.src, ['sass:build'], evt => {
