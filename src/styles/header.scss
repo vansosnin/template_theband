@@ -1,8 +1,47 @@
+@import "./variables";
+@import "./placeholders";
+
 .header {
     position: relative;
 
     width: 1900px;
     height: 964px;
 
+    overflow-x: hidden;
+
     background-image: url(./img/header_bg.png);
+}
+
+.header__right {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 900px;
+    height: 100%;
+}
+
+.band-name {
+    @extend %as-oswald-font;
+
+    position: relative;
+    z-index: 10;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    font-size: 100px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.band-name__light {
+    color: $lightColor;
+}
+
+.band-name__dark {
+    margin-top: -30px;
+
+    color: $darkColor;
 }
