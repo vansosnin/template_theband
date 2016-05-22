@@ -17,12 +17,12 @@
     top: 0;
     right: 0;
 
-    width: 900px;
+    width: 1000px;
     height: 100%;
 }
 
-.band-name {
-    @extend %as-oswald-font;
+.header__band-name {
+    @extend %oswald-font;
 
     position: relative;
     z-index: 10;
@@ -44,4 +44,45 @@
     margin-top: -30px;
 
     color: $darkColor;
+}
+
+.header__words {
+    @extend %lora-font;
+
+    position: absolute;
+    top: 190px;
+    right: 290px;
+
+    color: $mainColor;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.words__col {
+    @extend %as-inline-block;
+
+    position: relative;
+
+    margin-right: 20px;
+
+    &:last-item {
+        margin-right: 0;
+    }
+}
+
+.words__col-1,
+.words__col-4 {
+    top: 105px;
+}
+
+.words__col-3 {
+    top: 69px;
+}
+
+.words__item {
+    margin-bottom: 20px;
+
+    &:last-item {
+        margin-bottom: 0;
+    }
 }
