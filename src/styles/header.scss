@@ -2,12 +2,9 @@
 @import "./placeholders";
 
 .header {
-    position: relative;
+    @extend %as-section;
 
-    width: 1900px;
     height: 964px;
-
-    overflow-x: hidden;
 
     background-image: url(./img/header_bg.png);
 }
@@ -55,6 +52,7 @@
 
     color: $mainColor;
     font-size: 12px;
+    font-weight: bold;
     text-transform: uppercase;
 }
 
