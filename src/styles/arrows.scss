@@ -1,0 +1,82 @@
+@import "./variables";
+
+.slide-arrow {
+    position: absolute;
+    top: 50%;
+
+    width: 50px;
+    height: 90px;
+
+    transform: translateY(-50%);
+
+    cursor: pointer;
+
+    &:before,
+    &:after {
+        content: '';
+
+        position: absolute;
+
+        width: 62px;
+        height: 5px;
+
+        transition: background $transitionBaseTime $transitionBaseFunction;
+
+        background-color: $mainColor;
+    }
+
+    &:hover:before,
+    &:hover:after {
+        background-color: $darkColor;
+    }
+}
+
+.arrow-left {
+    left: 200px;
+
+    &:before,
+    &:after {
+        transform-origin: left top 0;
+
+        border-radius: 0 5px 5px 0;
+    }
+
+    &:before {
+        top: 45px;
+        left: 0px;
+
+        transform: rotate(-45deg);
+    }
+
+    &:after {
+        top: 42px;
+        left: 4px;
+
+        transform: rotate(45deg);
+    }
+}
+
+.arrow-right {
+    right: 200px;
+
+    &:before,
+    &:after {
+        transform-origin: right top 0;
+
+        border-radius: 5px 0 0 5px;
+    }
+
+    &:before {
+        top: 45px;
+        right: 0px;
+
+        transform: rotate(45deg);
+    }
+
+    &:after {
+        top: 42px;
+        right: 4px;
+
+        transform: rotate(-45deg);
+    }
+}
