@@ -1,4 +1,4 @@
-%as-section {
+%section {
     position: relative;
 
     width: 1900px;
@@ -6,7 +6,18 @@
     overflow-x: hidden;
 }
 
-%as-inline-block {
+%inline-block {
     display: inline-block;
     vertical-align: top;
+}
+
+%clearfix {
+    &:after,
+    &:before {
+        content: ' ';
+
+        display: table;
+
+        clear: both;
+    }
 }

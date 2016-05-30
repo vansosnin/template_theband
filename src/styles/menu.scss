@@ -1,5 +1,5 @@
-@import "./variables";
-@import "./placeholders";
+@import './variables';
+@import './placeholders';
 
 .menu {
     position: relative;
@@ -8,7 +8,7 @@
 }
 
 .menu-item {
-    @extend %as-inline-block;
+    @extend %inline-block;
     @extend %lora-font;
 
     position: relative;
