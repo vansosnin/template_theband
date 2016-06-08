@@ -40,28 +40,19 @@
 
 .members__list {
     @extend %lora-font;
-    @extend %clearfix;
 
-    display: flex;
-    margin: 0;
-    padding: 0;
+    transform: rotate(-90deg);
+    transform-origin: top right 0;
 
-    list-style-type: none;
-    justify-content: center;
-    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 .members-list__item {
-    display: block;
-
     transition: color $transitionBaseTime $transitionBaseFunction;
-    transform: rotate(-90deg);
 
     color: $lightColor;
-    font-size: 12px;
-    font-weight: bold;
-    white-space: nowrap;
-    text-transform: uppercase;
 
     cursor: pointer;
 
@@ -73,6 +64,34 @@
         color: $mainColor;
 
         cursor: default;
+    }
+}
+
+.members-list__cell {
+    white-space: nowrap;
+
+    &:first-child {
+        text-align: right;
+    }
+}
+
+.members-list__dot {
+    @extend %inline-block;
+
+    position: relative;
+    top: 2px;
+
+    width: 12px;
+    height: 12px;
+
+    transition: background $transitionBaseTime $transitionBaseFunction;
+
+    border-radius: 50%;
+    background-color: $lightColor;
+
+    .members-list__item:hover &,
+    .members-list__item.active & {
+        background-color: $mainColor;
     }
 }
 
