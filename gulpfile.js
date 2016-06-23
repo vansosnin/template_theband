@@ -22,6 +22,9 @@ const config = {
         src: 'src/styles/img/**/*.png',
         destFile: 'sprite.png'
     },
+    contentImg: {
+        src: 'content/img/**/*.png'
+    },
     dest: 'dist'
 };
 
@@ -96,6 +99,12 @@ gulp.task('js:deploy', () => (
 
 gulp.task('img:optimize', () => (
     gulp.src(config.img.src, { base: './' })
+        .pipe(plugins.imagemin())
+        .pipe(gulp.dest(''))
+));
+
+gulp.task('contentImg:optimize', () => (
+    gulp.src(config.contentImg.src, { base: './' })
         .pipe(plugins.imagemin())
         .pipe(gulp.dest(''))
 ));
