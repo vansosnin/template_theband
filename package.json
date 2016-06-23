@@ -4,7 +4,7 @@
   "description": "HTML template",
   "main": "index.html",
   "scripts": {
-    "predeploy": "gulp sass:comb & gulp img:optimize & gulp fonts:copy & gulp img:copy & contentImg:optimize",
+    "predeploy": "gulp sass:comb & gulp img:optimize & gulp fonts:copy & gulp img:copy & gulp contentImg:optimize",
     "deploy": "gulp sass:deploy & gulp js:deploy && gulp img:sprite"
   },
   "repository": {

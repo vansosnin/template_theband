@@ -1,3 +1,4 @@
 /index.psd
 /node_modules
 /dist/img
+*.log
