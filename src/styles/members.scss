@@ -4,7 +4,12 @@
 .members {
     @extend %section;
 
+    display: flex;
+    height: 960px;
+
     background-color: $bgMembersColor;
+
+    justify-content: center;
 }
 
 .member__id {
@@ -13,8 +18,20 @@
     width: 645px;
 }
 
+.member__image {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+}
+
 .member__name {
     @extend %oswald-font;
+
+    position: absolute;
+    z-index: 2;
+    top: 610px;
+
+    margin-left: 290px;
 
     font-size: 100px;
     font-weight: bold;
@@ -36,6 +53,7 @@
     @extend %inline-block;
 
     width: 445px;
+    margin-left: 100px;
     padding-top: 246px;
 }
 
