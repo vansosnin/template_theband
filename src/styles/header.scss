@@ -1,8 +1,8 @@
 @import './variables';
-@import './placeholders';
+@import './mixins';
 
 .header {
-    @extend %section;
+    @include section();
 
     height: 964px;
 
@@ -19,7 +19,7 @@
 }
 
 .header__band-name {
-    @extend %oswald-font;
+    @include oswald-font();
 
     position: relative;
     z-index: 10;
@@ -44,7 +44,7 @@
 }
 
 .header__words {
-    @extend %lora-font;
+    @include lora-font();
 
     position: absolute;
     top: 190px;
@@ -57,7 +57,7 @@
 }
 
 .words__col {
-    @extend %inline-block;
+    @include inline-block();
 
     position: relative;
 

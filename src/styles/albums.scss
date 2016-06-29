@@ -1,8 +1,8 @@
 @import './variables';
-@import './placeholders';
+@import './mixins';
 
 @mixin track() {
-    @extend %lora-font;
+    @include lora-font();
 
     color: $mainColor;
     font-size: 18px;
@@ -10,7 +10,7 @@
 }
 
 @mixin button($bgColor, $fontColor) {
-    @extend %oswald-font;
+    @include oswald-font();
 
     padding: 5px 17px;
 
@@ -32,7 +32,7 @@
 }
 
 .player__album {
-    @extend %oswald-font;
+    @include oswald-font();
 
     color: $darkColor;
     font-size: 30px;

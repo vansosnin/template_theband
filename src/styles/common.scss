@@ -1,13 +1,13 @@
 @import './fonts';
 @import './variables';
-@import './placeholders';
+@import './mixins';
 
 body {
     margin: 0;
 }
 
 .subheader {
-    @extend %oswald-font;
+    @include oswald-font();
 
     color: $darkColor;
     font-size: 36px;

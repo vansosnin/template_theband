@@ -1,7 +1,7 @@
-%lora-font {
+@mixin lora-font() {
     font-family: Lora, serif;
 }
 
-%oswald-font {
+@mixin oswald-font {
     font-family: Oswald, sans-serif;
 }

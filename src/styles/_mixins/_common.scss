@@ -1,4 +1,4 @@
-%section {
+@mixin section() {
     position: relative;
 
     width: 1900px;
@@ -6,12 +6,12 @@
     overflow-x: hidden;
 }
 
-%inline-block {
+@mixin inline-block() {
     display: inline-block;
     vertical-align: top;
 }
 
-%clearfix {
+@mixin clearfix() {
     &:after,
     &:before {
         content: ' ';
