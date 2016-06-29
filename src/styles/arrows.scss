@@ -32,6 +32,11 @@
     &:hover:after {
         background-color: $darkColor;
     }
+
+    &:active,
+    &:focus {
+        outline: none;
+    }
 }
 
 .arrow-left {

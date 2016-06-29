@@ -14,7 +14,7 @@
 @mixin clearfix() {
     &:after,
     &:before {
-        content: ' ';
+        content: '';
 
         display: table;
 

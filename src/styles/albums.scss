@@ -21,6 +21,14 @@
     font-size: 18px;
     font-weight: 400;
     text-transform: uppercase;
+
+    cursor: pointer;
+
+    //todo: transition on hover
+    &:active,
+    &:focus {
+        outline: none;
+    }
 }
 
 .album__listen {
