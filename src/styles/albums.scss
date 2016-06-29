@@ -1,0 +1,74 @@
+@import './variables';
+@import './placeholders';
+
+@mixin track() {
+    @extend %lora-font;
+
+    color: $mainColor;
+    font-size: 18px;
+    font-style: italic;
+}
+
+@mixin button($bgColor, $fontColor) {
+    @extend %oswald-font;
+
+    padding: 5px 17px;
+
+    border: none;
+    background-color: $bgColor;
+
+    color: $fontColor;
+    font-size: 18px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.album__listen {
+    @include button($lightColor, $mainColor);
+}
+
+.album__buy {
+    @include button($mainColor, $lightColor);
+}
+
+.player__album {
+    @extend %oswald-font;
+
+    color: $darkColor;
+    font-size: 30px;
+    font-weight: 300;
+}
+
+.album__year {
+    position: relative;
+
+    &:before {
+        //todo: dot
+    }
+}
+
+.player__song-title,
+.tracklist__time {
+    // todo: leave 1 class?
+    @include track();
+}
+
+.player__song-title--tracklist {
+    position: relative;
+
+    cursor: pointer;
+
+    &:before {
+        // todo: arrow
+        content: '';
+
+        background-color: $lightColor;
+    }
+
+    &:hover,
+    &.active {
+        &:before {
+            background-color: $mainColor;
+        }
+    }
+}
