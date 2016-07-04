@@ -1,3 +1,6 @@
+@import './fonts';
+@import '../variables';
+
 @mixin section() {
     position: relative;
 
@@ -20,4 +23,12 @@
 
         clear: both;
     }
+}
+
+@mixin subheader() {
+    @include oswald-font();
+
+    color: $darkColor;
+    font-size: 36px;
+    font-weight: 400;
 }

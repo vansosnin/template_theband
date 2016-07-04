@@ -14,6 +14,8 @@
 
     padding: 5px 17px;
 
+    transition: all $transitionBaseTime $transitionBaseFunction;
+
     border: none;
     background-color: $bgColor;
 
@@ -24,22 +26,19 @@
 
     cursor: pointer;
 
-    //todo: transition on hover
+    &:hover {
+        background-color: $fontColor;
+
+        color: $bgColor;
+    }
+
     &:active,
     &:focus {
         outline: none;
     }
 }
 
-.album__listen {
-    @include button($lightColor, $mainColor);
-}
-
-.album__buy {
-    @include button($mainColor, $lightColor);
-}
-
-.player__album {
+@mixin album-list-text() {
     @include oswald-font();
 
     color: $darkColor;
@@ -47,12 +46,66 @@
     font-weight: 300;
 }
 
+.albums {
+    @include section();
+
+    display: flex;
+    padding-top: 100px;
+
+    justify-content: center;
+}
+
+.player-col {
+    margin-left: 200px;
+}
+
+.discography__album {
+    display: flex;
+    margin: 30px 0;
+
+    align-items: center;
+}
+
+.album__title {
+    @include album-list-text;
+
+    width: 275px;
+}
+
 .album__year {
+    @include album-list-text;
+
     position: relative;
 
+    width: 100px;
+
+    text-align: right;
+
     &:before {
-        //todo: dot
+        content: '';
+
+        position: absolute;
+        top: 17px;
+        left: 0;
+
+        width: 15px;
+        height: 15px;
+
+        border-radius: 100%;
+        background-color: $lightColor;
     }
+}
+
+.album__listen {
+    @include button($lightColor, $mainColor);
+
+    margin-left: 60px;
+}
+
+.album__buy {
+    @include button($mainColor, $lightColor);
+
+    margin-left: 30px;
 }
 
 .player__song-title,
@@ -79,4 +132,16 @@
             background-color: $mainColor;
         }
     }
+}
+
+.discography__title {
+    @include subheader();
+
+    margin: 90px 0 60px;
+}
+
+.player__title {
+    @include subheader();
+
+    margin-bottom: 50px;
 }

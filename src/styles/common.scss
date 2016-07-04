@@ -2,15 +2,12 @@
 @import './variables';
 @import './mixins';
 
-body {
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
     margin: 0;
-}
-
-.subheader {
-    @include oswald-font();
-
-    color: $darkColor;
-    font-size: 36px;
-    font-weight: 400;
-    text-align: center;
 }
