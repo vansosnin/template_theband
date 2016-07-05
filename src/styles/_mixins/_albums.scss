@@ -38,7 +38,7 @@
     }
 }
 
-@mixin album-list-text() {
+@mixin album-title() {
     @include oswald-font();
 
     color: $darkColor;

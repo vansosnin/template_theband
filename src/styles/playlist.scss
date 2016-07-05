@@ -1,0 +1,78 @@
+@import './variables';
+@import './mixins';
+
+.player__title {
+    @include subheader();
+
+    margin-bottom: 50px;
+}
+
+.player__album {
+    @include album-title();
+
+    margin-bottom: 10px;
+
+    .player__playlist & {
+        margin-bottom: 30px;
+    }
+}
+
+.player__song-title {
+    @include track();
+}
+
+.playlist__dots {
+    position: relative;
+    top: -4px;
+
+    width: 195px;
+    box-sizing: border-box;
+
+    border-bottom: 1px dotted $mainColor;
+}
+
+.playlist__time {
+    @include track();
+
+    margin-left: 25px;
+}
+
+.playlist__song {
+    display: flex;
+    margin-bottom: 10px;
+    padding-left: 30px;
+
+    cursor: pointer;
+}
+
+.playlist__title {
+    @include track();
+
+    position: relative;
+
+    width: 345px;
+
+    &:before {
+        content: '';
+
+        position: absolute;
+        top: 3px;
+        left: -30px;
+
+        width: 0;
+        height: 0;
+
+        transition: border-color $transitionBaseTime $transitionBaseFunction;
+
+        border-width: 8px 0 8px 13px;
+        border-style: solid;
+        border-color: transparent transparent transparent $lightColor;
+    }
+
+    .playlist__song:hover &,
+    .playlist__song.active & {
+        &:before {
+            border-left-color: $mainColor;
+        }
+    }
+}
