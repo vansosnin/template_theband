@@ -1,0 +1,47 @@
+@import '../variables';
+@import './fonts';
+
+@mixin track() {
+    @include lora-font();
+
+    color: $mainColor;
+    font-size: 18px;
+    font-style: italic;
+}
+
+@mixin button($bgColor, $fontColor) {
+    @include oswald-font();
+
+    padding: 5px 17px;
+
+    transition: all $transitionBaseTime $transitionBaseFunction;
+
+    border: none;
+    background-color: $bgColor;
+
+    color: $fontColor;
+    font-size: 18px;
+    font-weight: 400;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    &:hover {
+        background-color: $fontColor;
+
+        color: $bgColor;
+    }
+
+    &:active,
+    &:focus {
+        outline: none;
+    }
+}
+
+@mixin album-list-text() {
+    @include oswald-font();
+
+    color: $darkColor;
+    font-size: 30px;
+    font-weight: 300;
+}
