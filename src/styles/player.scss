@@ -1,0 +1,155 @@
+@import './variables';
+@import './mixins';
+
+.player__controls {
+    margin-top: 30px;
+    margin-bottom: 100px;
+}
+
+.controls__buttons {
+    display: flex;
+    margin-bottom: 35px;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.controls__rewind {
+    @include control_triangles();
+
+    &:before,
+    &:after {
+        border-right: $arrowButtonWidth solid $lightColor;
+    }
+
+    &:hover {
+        &:before,
+        &:after {
+            border-right-color: $mainColor;
+        }
+    }
+}
+
+.controls__play-pause {
+    position: relative;
+
+    margin: 0 85px;
+
+    cursor: pointer;
+
+    &.is-pause {
+        width: 32px;
+        height: 45px;
+
+        &:before,
+        &:after {
+            content: '';
+
+            position: absolute;
+            top: 0;
+
+            width: 12px;
+            height: 45px;
+
+            transition: background $transitionBaseTime $transitionBaseFunction;
+
+            background-color: $lightColor;
+        }
+
+        &:before {
+            left: 0;
+        }
+
+        &:after {
+            right: 0;
+        }
+
+        &:hover {
+            &:before,
+            &:after {
+                background-color: $mainColor;
+            }
+        }
+    }
+
+    &.is-play {
+        $dimensions: 46px;
+
+        width: $dimensions;
+        height: $dimensions;
+
+        &:before {
+            content: '';
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 0;
+            height: 0;
+
+            transition: border-color $transitionBaseTime $transitionBaseFunction;
+
+            border-top: ($dimensions / 2) solid transparent;
+            border-bottom: ($dimensions / 2) solid transparent;
+            border-left: $dimensions solid $lightColor;
+        }
+
+        &:hover:before {
+            border-left-color: $mainColor;
+        }
+    }
+}
+
+.controls__forward {
+    @include control_triangles();
+
+    &:before,
+    &:after {
+        border-left: $arrowButtonWidth solid $lightColor;
+    }
+
+    &:hover {
+        &:before,
+        &:after {
+            border-left-color: $mainColor;
+        }
+    }
+}
+
+.controls__timeline {
+    position: relative;
+
+    width: 635px;
+    height: 7px;
+
+    border-radius: 5px;
+    background-color: $lightColor;
+
+    cursor: pointer;
+}
+
+.timeline__active {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 7px;
+
+    border-radius: 5px;
+    background-color: $timelineColor;
+
+    &:after {
+        content: '';
+
+        position: absolute;
+        top: -11px;
+        right: -15px;
+
+        width: 30px;
+        height: 30px;
+
+        border-radius: 100%;
+        background-color: $mainColor;
+    }
+}

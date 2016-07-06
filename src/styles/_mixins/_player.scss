@@ -1,0 +1,33 @@
+@import './variables';
+
+@mixin control_triangles() {
+    position: relative;
+
+    cursor: pointer;
+    height: $arrowsButtonHeight;
+    width: $arrowButtonWidth * 2;
+
+    &:before,
+    &:after {
+        content: '';
+
+        position: absolute;
+        top: 0;
+
+        height: 0;
+        width: 0;
+
+        transition: border-color $transitionBaseTime $transitionBaseFunction;
+
+        border-top: ($arrowsButtonHeight / 2) solid transparent;
+        border-bottom: ($arrowsButtonHeight / 2) solid transparent;
+    }
+
+    &:before {
+        left: 0;
+    }
+
+    &:after {
+        right: 0;
+    }
+}
