@@ -1,0 +1,57 @@
+@import './variables';
+@import './mixins';
+
+.tours {
+    @include section();
+
+    padding: 85px 0 130px;
+
+    background-color: #f1eeed;
+}
+
+.tours__title {
+    @include subheader();
+
+    text-align: center;
+}
+
+.tours__slider {
+    position: relative;
+}
+
+.tours__list {
+}
+
+.tours__tour {
+    @include lora-font();
+
+    transition: color $transitionBaseTime $transitionBaseFunction;
+
+    color: $mainColor;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    &.past {
+        cursor: default;
+
+        &,
+        &:hover {
+            color: $lightColor;
+        }
+    }
+
+    &.today,
+    &:hover {
+        color: $darkColor;
+    }
+
+    &.today {
+        cursor: default;
+    }
+}
+
+.tickets__buy {
+    @include button($mainColor, $lightColor);
+}

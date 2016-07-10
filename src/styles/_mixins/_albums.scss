@@ -9,35 +9,6 @@
     font-style: italic;
 }
 
-@mixin button($bgColor, $fontColor) {
-    @include oswald-font();
-
-    padding: 5px 17px;
-
-    transition: all $transitionBaseTime $transitionBaseFunction;
-
-    border: none;
-    background-color: $bgColor;
-
-    color: $fontColor;
-    font-size: 18px;
-    font-weight: 400;
-    text-transform: uppercase;
-
-    cursor: pointer;
-
-    &:hover {
-        background-color: $fontColor;
-
-        color: $bgColor;
-    }
-
-    &:active,
-    &:focus {
-        outline: none;
-    }
-}
-
 @mixin album-title() {
     @include oswald-font();
 
