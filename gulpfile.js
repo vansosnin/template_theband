@@ -1,4 +1,5 @@
 ﻿const gulp = require('gulp');
+﻿const gutil = require('gulp-util');
 const autoprefixer = require('autoprefixer');
 const postcssSorting = require('postcss-sorting');
 const perfectionist = require('perfectionist');
@@ -28,10 +29,24 @@ const config = {
     dest: 'dist'
 };
 
+const errorHandler = () => {
+    const notifier = plugins.notify.onError({
+        title: 'Error: \'sass:build\' failed.',
+        message: 'Error: <%= error.message %>'
+    });
+
+    return function(error) {
+        notifier(error);
+        gutil.log(error);
+        this.emit('end');
+    };
+};
+
 // Styles
 
 gulp.task('sass:build', () => (
     gulp.src(config.styles.src, { base: './' })
+        .pipe(plugins.plumber({ errorHandler: errorHandler() }))
         .pipe(plugins.sass({ sourcemap: true }))
         .pipe(plugins.sourcemaps.init({ loadMaps: true }))
         .pipe(plugins.postcss([
