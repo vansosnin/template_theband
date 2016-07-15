@@ -2,7 +2,7 @@
 @import './fonts';
 
 @mixin track() {
-    @include lora-font();
+    @include secondary-font();
 
     color: $mainColor;
     font-size: 18px;
@@ -10,7 +10,7 @@
 }
 
 @mixin album-title() {
-    @include oswald-font();
+    @include main-font();
 
     color: $darkColor;
     font-size: 30px;

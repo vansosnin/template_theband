@@ -25,7 +25,7 @@
 }
 
 .member__name {
-    @include oswald-font();
+    @include main-font();
 
     position: absolute;
     z-index: 2;
@@ -58,7 +58,7 @@
 }
 
 .members__list {
-    @include lora-font();
+    @include secondary-font();
 
     position: relative;
     top: -40px;
@@ -135,7 +135,7 @@
 }
 
 .member__bio {
-    @include lora-font();
+    @include secondary-font();
 
     color: $darkColor;
     font-size: 18px;

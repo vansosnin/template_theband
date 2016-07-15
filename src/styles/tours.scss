@@ -1,6 +1,11 @@
 @import './variables';
 @import './mixins';
 
+@mixin date_right() {
+    position: relative;
+    left: 5px;
+}
+
 .tours {
     @include section();
 
@@ -23,7 +28,7 @@
 }
 
 .tours__tour {
-    @include lora-font();
+    @include secondary-font();
 
     transition: color $transitionBaseTime $transitionBaseFunction;
 
@@ -52,6 +57,76 @@
     }
 }
 
+.tours__tickets {
+    width: 1265px;
+    margin: 0 auto;
+}
+
+.tickets__concert {
+    display: flex;
+    margin: 25px 0;
+    padding-bottom: 30px;
+
+    border-bottom: 2px dotted $mainColor;
+
+    align-items: center;
+}
+
+.tickets__date {
+    @include main-font();
+
+    position: relative;
+
+    width: 90px;
+    margin-right: 55px;
+
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 20px;
+
+    &:after {
+        content: '';
+
+        position: absolute;
+        top: 0;
+        right: -25px;
+        bottom: 0;
+
+        width: 5px;
+
+        background-color: $lightColor;
+    }
+}
+
+.tickets__day {
+    float: left;
+
+    font-size: 45px;
+    line-height: 45px;
+}
+
+.tickets__month {
+    @include date_right();
+
+    top: 2px;
+
+    text-transform: uppercase;
+}
+
+.tickets__year {
+    @include date_right();
+
+    top: 4px;
+}
+
+.tickets__location {
+    @include main-font();
+
+    font-size: 25px;
+}
+
 .tickets__buy {
     @include button($mainColor, $lightColor);
+
+    margin-left: auto;
 }

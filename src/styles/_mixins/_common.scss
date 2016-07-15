@@ -26,7 +26,7 @@
 }
 
 @mixin subheader() {
-    @include oswald-font();
+    @include main-font();
 
     color: $darkColor;
     font-size: 36px;
@@ -34,7 +34,7 @@
 }
 
 @mixin button($bgColor, $fontColor) {
-    @include oswald-font();
+    @include main-font();
 
     padding: 5px 17px;
 

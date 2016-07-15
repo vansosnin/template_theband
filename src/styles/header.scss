@@ -19,7 +19,7 @@
 }
 
 .header__band-name {
-    @include oswald-font();
+    @include main-font();
 
     position: relative;
     z-index: 10;
@@ -44,7 +44,7 @@
 }
 
 .header__words {
-    @include lora-font();
+    @include secondary-font();
 
     position: absolute;
     top: 190px;

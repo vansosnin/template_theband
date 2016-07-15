@@ -9,7 +9,7 @@
 
 .menu-item {
     @include inline-block();
-    @include lora-font();
+    @include secondary-font();
 
     position: relative;
 
