@@ -19,7 +19,7 @@
 
     &:before,
     &:after {
-        border-right: $arrowButtonWidth solid $lightColor;
+        border-right: $arrowButtonWidth solid $secondaryColor;
     }
 
     &:hover {
@@ -53,7 +53,7 @@
 
             transition: background $transitionBaseTime $transitionBaseFunction;
 
-            background-color: $lightColor;
+            background-color: $secondaryColor;
         }
 
         &:before {
@@ -92,7 +92,7 @@
 
             border-top: ($dimensions / 2) solid transparent;
             border-bottom: ($dimensions / 2) solid transparent;
-            border-left: $dimensions solid $lightColor;
+            border-left: $dimensions solid $secondaryColor;
         }
 
         &:hover:before {
@@ -106,7 +106,7 @@
 
     &:before,
     &:after {
-        border-left: $arrowButtonWidth solid $lightColor;
+        border-left: $arrowButtonWidth solid $secondaryColor;
     }
 
     &:hover {
@@ -124,7 +124,7 @@
     height: 7px;
 
     border-radius: 5px;
-    background-color: $lightColor;
+    background-color: $secondaryColor;
 
     cursor: pointer;
 }

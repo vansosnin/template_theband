@@ -46,7 +46,7 @@
 .member__last-name {
     margin-top: -30px;
 
-    color: $darkColor;
+    color: $accentedColor;
 }
 
 .member__description {
@@ -75,7 +75,7 @@
 .members-list__item {
     transition: color $transitionBaseTime $transitionBaseFunction;
 
-    color: $lightColor;
+    color: $secondaryColor;
 
     cursor: pointer;
 
@@ -118,7 +118,7 @@
     transition: background $transitionBaseTime $transitionBaseFunction;
 
     border-radius: 50%;
-    background-color: $lightColor;
+    background-color: $secondaryColor;
 
     .members-list__item:hover &,
     .members-list__item.active & {
@@ -137,7 +137,7 @@
 .member__bio {
     @include secondary-font();
 
-    color: $darkColor;
+    color: $accentedColor;
     font-size: 18px;
     font-weight: normal;
     line-height: 2;

@@ -25,6 +25,18 @@
 }
 
 .tours__list {
+    position: relative;
+    top: 70px;
+
+    margin: 0 auto;
+    padding-right: 14px;
+
+    transform: rotate(-90deg);
+    transform-origin: top right 0;
+
+    border-right: 2px solid $secondaryColor;
+
+    text-align: right;
 }
 
 .tours__tour {
@@ -43,13 +55,13 @@
 
         &,
         &:hover {
-            color: $lightColor;
+            color: $secondaryColor;
         }
     }
 
     &.today,
     &:hover {
-        color: $darkColor;
+        color: $accentedColor;
     }
 
     &.today {
@@ -57,9 +69,65 @@
     }
 }
 
+.tour__content {
+    position: relative;
+
+    padding-top: 30px;
+
+    transition: padding $transitionBaseTime $transitionBaseFunction;
+
+    .tours__tour:first-child & {
+        padding-top: 0;
+    }
+
+    .tours__tour.today & {
+        padding-top: 50px;
+    }
+
+    .tours__tour.today + .tours__tour & {
+        padding-top: 50px;
+    }
+
+    &:after {
+        content: '';
+
+        position: absolute;
+        top: 50%;
+        right: -25px;
+
+        width: 14px;
+        height: 14px;
+        margin-top: 14px;
+
+        transition: background $transitionBaseTime $transitionBaseFunction;
+
+        border-radius: 100%;
+        background-color: $mainColor;
+
+        .tours__tour.past &,
+        .tours__tour.past:hover & {
+            background-color: $secondaryColor;
+        }
+
+        .tours__tour.today &,
+        .tours__tour:hover & {
+            background-color: $accentedColor;
+        }
+
+        .tours__tour:first-child & {
+            top: 14px;
+
+            margin-top: 0;
+        }
+    }
+}
+
 .tours__tickets {
     width: 1265px;
+    height: 275px;
     margin: 0 auto;
+
+    overflow-y: scroll;
 }
 
 .tickets__concert {
@@ -94,7 +162,7 @@
 
         width: 5px;
 
-        background-color: $lightColor;
+        background-color: $secondaryColor;
     }
 }
 
@@ -126,7 +194,7 @@
 }
 
 .tickets__buy {
-    @include button($mainColor, $lightColor);
+    @include button($mainColor, $secondaryColor);
 
     margin-left: auto;
 }

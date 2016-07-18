@@ -28,7 +28,7 @@
 @mixin subheader() {
     @include main-font();
 
-    color: $darkColor;
+    color: $accentedColor;
     font-size: 36px;
     font-weight: 400;
 }
