@@ -51,7 +51,7 @@
 
     &:before {
         top: 45px;
-        left: 0px;
+        left: 0;
 
         transform: rotate(-45deg);
     }
@@ -76,7 +76,7 @@
 
     &:before {
         top: 45px;
-        right: 0px;
+        right: 0;
 
         transform: rotate(45deg);
     }

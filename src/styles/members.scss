@@ -1,5 +1,7 @@
 @import './variables';
 @import './mixins';
+$cellWidth: 150px;
+$dotWidth: 24px;
 
 .members {
     @include section();
@@ -60,12 +62,10 @@
 .members__list {
     @include secondary-font();
 
-    position: relative;
-    top: -40px;
-    left: -130px;
+    width: $cellWidth * 2 + $dotWidth;
+    margin: 0 auto;
 
     transform: rotate(-90deg);
-    transform-origin: top right 0;
 
     font-size: 12px;
     font-weight: bold;
@@ -73,11 +73,16 @@
 }
 
 .members-list__item {
+    display: flex;
+
     transition: color $transitionBaseTime $transitionBaseFunction;
 
     color: $secondaryColor;
 
     cursor: pointer;
+    flex-display: row;
+    justify-content: center;
+    align-items: center;
 
     &:hover {
         color: $mainColor;
@@ -91,39 +96,24 @@
 }
 
 .members-list__cell {
+    @include inline-block();
+
+    width: $cellWidth;
     padding: 13px 0;
 
     white-space: nowrap;
 
     &:first-child {
-        padding-right: 10px;
-
         text-align: right;
-    }
-
-    &:last-child {
-        padding-left: 10px;
     }
 }
 
 .members-list__dot {
-    @include inline-block();
+    width: $dotWidth;
 
-    position: relative;
-    top: 2px;
-
-    width: 12px;
-    height: 12px;
-
-    transition: background $transitionBaseTime $transitionBaseFunction;
-
-    border-radius: 50%;
-    background-color: $secondaryColor;
-
-    .members-list__item:hover &,
-    .members-list__item.active & {
-        background-color: $mainColor;
-    }
+    font-size: 36px;
+    line-height: 12px;
+    text-align: center;
 }
 
 .member__title {
