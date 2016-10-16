@@ -1,0 +1,21 @@
+@import './variables';
+@import './mixins';
+
+.contacts {
+    @include section();
+
+    padding: 170px 0 80px;
+
+    background: $mainColor;
+}
+
+.contact-info {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.contact-info__title {
+}
+
+.contact-info__phone {
+}
