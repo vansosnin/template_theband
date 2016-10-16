@@ -77,12 +77,17 @@ gulp.task('sass:comb', () => (
                 autoprefixer({ add: false, browsers: [] }),
                 perfectionist({
                     cascade: true,
+                    colorCase: 'lower',
+                    colorShorthand: true,
                     format: 'expanded',
                     indentSize: 4,
                     maxAtRuleLength: 80,
                     maxSelectorLength: 4,
                     maxValueLength: 80,
+                    trimLeadingZero: true,
+                    trimTrailingZeros: true,
                     sourcemap: false,
+                    zeroLengthNoUnit: true,
                     syntax: 'scss'
                 }),
                 postcssSorting({
@@ -132,7 +137,7 @@ gulp.task('img:copy', () => (
 gulp.task('img:sprite', () => {
         const fs = require('fs');
         const postcss = require('postcss');
-        const sprites = require('postcss-sprites').default;
+        const sprites = require('postcss-sprites');
 
         const css = fs.readFileSync('./dist/styles.css', 'utf8');
         const opts = {
