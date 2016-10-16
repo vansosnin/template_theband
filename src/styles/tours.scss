@@ -25,14 +25,13 @@
 }
 
 .tours__list {
-    position: relative;
-    top: 70px;
+    @include secondary-font();
 
-    margin: 0 auto;
+    width: 320px;
+    margin: -330px auto;
     padding-right: 14px;
 
     transform: rotate(-90deg);
-    transform-origin: top right 0;
 
     border-right: 2px solid $secondaryColor;
 
@@ -40,7 +39,9 @@
 }
 
 .tours__tour {
-    @include secondary-font();
+    position: relative;
+
+    padding-top: 30px;
 
     transition: color $transitionBaseTime $transitionBaseFunction;
 
@@ -50,71 +51,59 @@
 
     cursor: pointer;
 
+    &:after {
+        content: '';
+
+        position: absolute;
+        top: 50%;
+        right: -23px;
+
+        width: 14px;
+        height: 14px;
+        margin-top: 18px;
+
+        transition: background $transitionBaseTime $transitionBaseFunction;
+
+        border-radius: 100%;
+        background-color: $mainColor;
+    }
+
     &.past {
         cursor: default;
 
         &,
         &:hover {
             color: $secondaryColor;
+
+            &:after {
+                background-color: $secondaryColor;
+            }
         }
     }
 
     &.today,
     &:hover {
         color: $accentedColor;
+
+        &:after {
+            background-color: $accentedColor;
+        }
     }
 
     &.today {
+        padding-top: 50px;
+
         cursor: default;
     }
-}
 
-.tour__content {
-    position: relative;
+    .tours__tour.today + & {
+        padding-top: 50px;
+    }
 
-    padding-top: 30px;
-
-    transition: padding $transitionBaseTime $transitionBaseFunction;
-
-    .tours__tour:first-child & {
+    &:first-child {
         padding-top: 0;
-    }
 
-    .tours__tour.today & {
-        padding-top: 50px;
-    }
-
-    .tours__tour.today + .tours__tour & {
-        padding-top: 50px;
-    }
-
-    &:after {
-        content: '';
-
-        position: absolute;
-        top: 50%;
-        right: -25px;
-
-        width: 14px;
-        height: 14px;
-        margin-top: 14px;
-
-        transition: background $transitionBaseTime $transitionBaseFunction;
-
-        border-radius: 100%;
-        background-color: $mainColor;
-
-        .tours__tour.past &,
-        .tours__tour.past:hover & {
-            background-color: $secondaryColor;
-        }
-
-        .tours__tour.today &,
-        .tours__tour:hover & {
-            background-color: $accentedColor;
-        }
-
-        .tours__tour:first-child & {
+        &:after {
             top: 14px;
 
             margin-top: 0;
@@ -123,9 +112,13 @@
 }
 
 .tours__tickets {
+    position: relative;
+    top: -50px;
+
     width: 1265px;
     height: 275px;
     margin: 0 auto;
+    padding-right: 80px;
 
     overflow-y: scroll;
 }
