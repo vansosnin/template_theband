@@ -5,7 +5,8 @@
   "main": "index.html",
   "scripts": {
     "predeploy": "gulp sass:comb & gulp img:optimize & gulp fonts:copy & gulp img:copy & gulp contentImg:optimize",
-    "deploy": "gulp sass:deploy & gulp js:deploy && gulp img:sprite"
+    "deploy": "gulp sass:deploy & gulp js:deploy && gulp img:sprite",
+    "svgo": "svgo -f ./src/styles/img"
   },
   "repository": {
     "type": "git",
