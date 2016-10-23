@@ -1,13 +1,4 @@
-@import './fonts';
 @import '../variables';
-
-@mixin section() {
-    position: relative;
-
-    width: 1900px;
-
-    overflow-x: hidden;
-}
 
 @mixin inline-block() {
     display: inline-block;
@@ -25,39 +16,9 @@
     }
 }
 
-@mixin subheader() {
-    @include main-font();
-
-    color: $accentedColor;
-    font-size: 36px;
-    font-weight: 400;
-}
-
-@mixin button($bgColor, $fontColor) {
-    @include main-font();
-
-    padding: 5px 17px;
-
-    transition: all $transitionBaseTime $transitionBaseFunction;
-
-    border: none;
-    background-color: $bgColor;
-
-    color: $fontColor;
-    font-size: 18px;
-    font-weight: 400;
-    text-transform: uppercase;
-
-    cursor: pointer;
-
-    &:hover {
-        background-color: $fontColor;
-
-        color: $bgColor;
-    }
-
-    &:active,
-    &:focus {
-        outline: none;
-    }
+@mixin border-dotted($color: $mainColor, $size: 2) {
+    background-image: linear-gradient(to right, $color (5% * $size), rgba(255, 255, 255, 0) 0%);
+    background-position: bottom;
+    background-size: (10px * $size) (1px * $size);
+    background-repeat: repeat-x;
 }

@@ -1,0 +1,56 @@
+@import './fonts';
+@import '../variables';
+
+@mixin section() {
+    position: relative;
+
+    width: 1900px;
+
+    overflow-x: hidden;
+}
+
+@mixin section-header() {
+    @include main-font();
+
+    font-size: $fontSizeSectionHeader;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+@mixin subheader() {
+    @include main-font();
+
+    color: $accentedColor;
+    font-size: 36px;
+    font-weight: 400;
+}
+
+@mixin button($bgColor, $fontColor) {
+    @include main-font();
+
+    padding: 5px 17px;
+
+    transition: all $transitionBaseTime $transitionBaseFunction;
+
+    border: none;
+    background-color: $bgColor;
+
+    color: $fontColor;
+    font-size: 18px;
+    font-weight: 400;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    &:hover {
+        background-color: $fontColor;
+
+        color: $bgColor;
+    }
+
+    &:active,
+    &:focus {
+        outline: none;
+    }
+}
