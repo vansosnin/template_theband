@@ -27,18 +27,13 @@ $dotWidth: 24px;
 }
 
 .member__name {
-    @include main-font();
+    @include section-header();
 
     position: absolute;
     z-index: 2;
     top: 610px;
 
     margin-left: 290px;
-
-    font-size: 100px;
-    font-weight: bold;
-    text-align: center;
-    text-transform: uppercase;
 }
 
 .member__first-name {

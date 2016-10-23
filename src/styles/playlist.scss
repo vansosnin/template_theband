@@ -22,13 +22,13 @@
 }
 
 .playlist__dots {
+    @include border-dotted($size: 1);
+
     position: relative;
     top: -4px;
 
     width: 195px;
     box-sizing: border-box;
-
-    border-bottom: 1px dotted $mainColor;
 }
 
 .playlist__time {

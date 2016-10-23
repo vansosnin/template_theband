@@ -19,18 +19,13 @@
 }
 
 .header__band-name {
-    @include main-font();
+    @include section-header();
 
     position: relative;
     z-index: 10;
     top: 50%;
 
     transform: translateY(-50%);
-
-    font-size: 100px;
-    font-weight: bold;
-    text-align: center;
-    text-transform: uppercase;
 }
 
 .band-name__light {

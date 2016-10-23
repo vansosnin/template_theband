@@ -124,11 +124,11 @@
 }
 
 .tickets__concert {
+    @include border-dotted();
+
     display: flex;
     margin: 25px 0;
     padding-bottom: 30px;
-
-    border-bottom: 2px dotted $mainColor;
 
     align-items: center;
 }
