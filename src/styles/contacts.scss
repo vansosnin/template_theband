@@ -1,6 +1,32 @@
 @import './variables';
 @import './mixins';
 
+@mixin contacts-block() {
+    width: 780px;
+    margin: 0 auto;
+}
+
+@mixin header() {
+    @include section-header();
+
+    font-size: 80px;
+    line-height: 1.2;
+}
+
+@mixin form-field() {
+    float: right;
+
+    border: 6px solid $accentedColor;
+
+    line-height: 37px;
+
+    &:focus,
+    &:active {
+        outline: none;
+        box-shadow: none;
+    }
+}
+
 .contacts {
     @include section();
 
@@ -11,28 +37,69 @@
 }
 
 .contact-info {
-    width: 780px;
-    margin: 0 auto;
+    @include contacts-block();
 
     text-align: center;
     text-transform: uppercase;
 }
 
 .contact-info__title {
-    @include section-header();
+    @include header();
 
     color: $accentedColor;
-    font-size: 80px;
-    line-height: 1.2;
 }
 
 .contact-info__phone {
-    @include section-header();
+    @include header();
     @include border-dotted($secondaryColor);
 
     padding-bottom: 30px;
 
     color: $secondaryColor;
-    font-size: 80px;
-    line-height: 1.2;
+}
+
+.contact-data {
+    @include contacts-block();
+
+    margin-top: 40px;
+}
+
+.contact-form {
+    @include inline-block();
+
+    width: 530px;
+}
+
+.contact-form__label {
+    @include visually-hidden();
+}
+
+.contact-form__input {
+    @include form-field();
+
+    width: 51%;
+    padding: 0 10px;
+
+    background: transparent;
+
+    color: $accentedColor;
+    font-size: 32px;
+}
+
+@include placeholder() {
+    color: $secondaryColor;
+}
+
+.contact-form__submit {
+    @include section-header();
+    @include form-field();
+
+    padding: 0 4%;
+
+    background-color: $accentedColor;
+
+    color: $secondaryColor;
+    font-size: 37px;
+
+    cursor: pointer;
 }
