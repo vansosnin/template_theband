@@ -1,6 +1,7 @@
 ﻿const gulp = require('gulp');
 ﻿const gutil = require('gulp-util');
 const autoprefixer = require('autoprefixer');
+const postcssInlineSvg = require('postcss-inline-svg');
 const postcssSorting = require('postcss-sorting');
 const perfectionist = require('perfectionist');
 const plugins = require('gulp-load-plugins')({
@@ -50,7 +51,8 @@ gulp.task('sass:build', () => (
         .pipe(plugins.sass({ sourcemap: true }))
         .pipe(plugins.sourcemaps.init({ loadMaps: true }))
         .pipe(plugins.postcss([
-                autoprefixer({ browsers: ['last 5 versions', 'ie >= 9'] })
+                autoprefixer({ browsers: ['last 5 versions', 'ie >= 9'] }),
+                postcssInlineSvg()
             ]))
         .pipe(plugins.csso({ sourceMap: true }))
         .pipe(plugins.concat(config.styles.destFile))
@@ -62,9 +64,8 @@ gulp.task('sass:deploy', () => (
     gulp.src(config.styles.src, { base: './' })
         .pipe(plugins.sass())
         .pipe(plugins.postcss([
-                autoprefixer({
-                    browsers: ['last 5 versions', 'ie >= 9']
-                })
+                autoprefixer({ browsers: ['last 5 versions', 'ie >= 9'] }),
+                postcssInlineSvg()
             ]))
         .pipe(plugins.csso())
         .pipe(plugins.concat(config.styles.destFile))
