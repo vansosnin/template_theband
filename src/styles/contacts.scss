@@ -4,18 +4,35 @@
 .contacts {
     @include section();
 
+    height: 714px;
     padding: 170px 0 80px;
 
-    background: $mainColor;
+    background: $mainColor url(./img/footer_bg.png) center center no-repeat;
 }
 
 .contact-info {
+    width: 780px;
+    margin: 0 auto;
+
     text-align: center;
     text-transform: uppercase;
 }
 
 .contact-info__title {
+    @include section-header();
+
+    color: $accentedColor;
+    font-size: 80px;
+    line-height: 1.2;
 }
 
 .contact-info__phone {
+    @include section-header();
+    @include border-dotted($secondaryColor);
+
+    padding-bottom: 30px;
+
+    color: $secondaryColor;
+    font-size: 80px;
+    line-height: 1.2;
 }
