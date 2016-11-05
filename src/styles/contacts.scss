@@ -65,9 +65,10 @@
 }
 
 .contact-form {
-    @include inline-block();
-
+    display: inline-block;
     width: 530px;
+
+    vertical-align: bottom;
 }
 
 .contact-form__label {
@@ -102,4 +103,34 @@
     font-size: 37px;
 
     cursor: pointer;
+}
+
+.contact-data__icon {
+    $iconHeight: 59px;
+    $marginLeft: 30px;
+
+    display: inline-block;
+    height: $iconHeight;
+
+    vertical-align: bottom;
+
+    &.icon-facebook {
+        $facebookIconWidth: 33px;
+
+        width: $facebookIconWidth;
+        margin-left: $marginLeft * 2;
+
+        background-image: url(./img/facebook.svg);
+        background-size: $facebookIconWidth $iconHeight;
+    }
+
+    &.icon-youtube {
+        $youtubeIconWidth: 61px;
+
+        width: $youtubeIconWidth;
+        margin-left: $marginLeft;
+
+        background-image: url(./img/youtube.svg);
+        background-size: $youtubeIconWidth $iconHeight;
+    }
 }

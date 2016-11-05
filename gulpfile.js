@@ -131,7 +131,7 @@ gulp.task('contentImg:optimize', () => (
 ));
 
 gulp.task('img:copy', () => (
-    gulp.src('./src/styles/img/*.png')
+    gulp.src('./src/styles/img/*.*')
         .pipe(gulp.dest('./dist/img'))
 ));
 
