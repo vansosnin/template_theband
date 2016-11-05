@@ -61,14 +61,15 @@
 .contact-data {
     @include contacts-block();
 
+    display: flex;
     margin-top: 40px;
+
+    justify-content: space-around;
+    align-items: flex-end;
 }
 
 .contact-form {
-    display: inline-block;
     width: 530px;
-
-    vertical-align: bottom;
 }
 
 .contact-form__label {
@@ -107,18 +108,14 @@
 
 .contact-data__icon {
     $iconHeight: 59px;
-    $marginLeft: 30px;
 
-    display: inline-block;
     height: $iconHeight;
-
-    vertical-align: bottom;
 
     &.icon-facebook {
         $facebookIconWidth: 33px;
 
         width: $facebookIconWidth;
-        margin-left: $marginLeft * 2;
+        margin-left: 30px;
 
         background-image: url(./img/facebook.svg);
         background-size: $facebookIconWidth $iconHeight;
@@ -128,7 +125,6 @@
         $youtubeIconWidth: 61px;
 
         width: $youtubeIconWidth;
-        margin-left: $marginLeft;
 
         background-image: url(./img/youtube.svg);
         background-size: $youtubeIconWidth $iconHeight;
