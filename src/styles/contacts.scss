@@ -106,6 +106,10 @@
     cursor: pointer;
 }
 
+@svg-load facebook url(./img/facebook.svg) {}
+
+@svg-load youtube url(./img/youtube.svg) {}
+
 .contact-data__icon {
     $iconHeight: 59px;
 
@@ -117,7 +121,7 @@
         width: $facebookIconWidth;
         margin-left: 30px;
 
-        background-image: url(./img/facebook.svg);
+        background-image: svg-inline(facebook);
         background-size: $facebookIconWidth $iconHeight;
     }
 
@@ -126,7 +130,7 @@
 
         width: $youtubeIconWidth;
 
-        background-image: url(./img/youtube.svg);
+        background-image: svg-inline(youtube);
         background-size: $youtubeIconWidth $iconHeight;
     }
 }
