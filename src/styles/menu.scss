@@ -5,63 +5,11 @@
     position: relative;
     top: 80px;
     left: 205px;
-}
 
-.menu-item {
-    @include inline-block();
-    @include secondary-font();
+    .menu-item {
+        @include menu-font();
+        @include menu-item();
 
-    position: relative;
-
-    margin-right: 25px;
-
-    transition: color $transitionBaseTime $transitionBaseFunction;
-
-    color: $accentedColor;
-    font-size: 18px;
-    font-weight: bold;
-    text-transform: uppercase;
-
-    cursor: pointer;
-
-    &:before {
-        content: '';
-
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-
-        width: 0;
-        height: 3px;
-
-        transition: width $transitionBaseTime $transitionBaseFunction;
-
-        background-color: $mainColor;
-    }
-
-    &:hover:before {
-        width: 100%;
-    }
-
-    &:after {
-        content: '';
-
-        position: absolute;
-        top: 10px;
-        right: -17px;
-
-        width: 5px;
-        height: 5px;
-
-        border-radius: 100%;
-        background-color: $mainColor;
-    }
-
-    &:last-child {
-        margin-right: 0;
-
-        &:after {
-            display: none;
-        }
+        color: $accentedColor;
     }
 }

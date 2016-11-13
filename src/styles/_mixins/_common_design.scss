@@ -1,5 +1,65 @@
 @import './fonts';
+@import './common';
 @import '../variables';
+
+@mixin menu-font() {
+    @include secondary-font();
+
+    font-size: $fontSizeMenu;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+@mixin menu-item() {
+    @include inline-block();
+
+    position: relative;
+
+    margin-right: 25px;
+
+    cursor: pointer;
+
+    &:before {
+        content: '';
+
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+
+        width: 0;
+        height: 3px;
+
+        transition: width $transitionBaseTime $transitionBaseFunction;
+
+        background-color: $mainColor;
+    }
+
+    &:hover:before {
+        width: 100%;
+    }
+
+    &:after {
+        content: '';
+
+        position: absolute;
+        top: 10px;
+        right: -17px;
+
+        width: 5px;
+        height: 5px;
+
+        border-radius: 100%;
+        background-color: $mainColor;
+    }
+
+    &:last-child {
+        margin-right: 0;
+
+        &:after {
+            display: none;
+        }
+    }
+}
 
 @mixin section() {
     position: relative;

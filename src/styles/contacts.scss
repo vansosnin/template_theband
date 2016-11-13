@@ -106,9 +106,11 @@
     cursor: pointer;
 }
 
-@svg-load facebook url(./img/facebook.svg) {}
+@svg-load facebook url(./img/facebook.svg) {
+}
 
-@svg-load youtube url(./img/youtube.svg) {}
+@svg-load youtube url(./img/youtube.svg) {
+}
 
 .contact-data__icon {
     $iconHeight: 59px;
@@ -132,5 +134,31 @@
 
         background-image: svg-inline(youtube);
         background-size: $youtubeIconWidth $iconHeight;
+    }
+}
+
+.contacts-footer {
+    @include menu-font();
+
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+
+    width: 1500px;
+
+    transform: translateX(-50%);
+
+    color: $secondaryColor;
+}
+
+.copyright {
+    float: left;
+}
+
+.footer-menu {
+    float: right;
+
+    .menu-item {
+        @include menu-item();
     }
 }
