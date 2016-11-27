@@ -36,7 +36,7 @@ const errorHandler = () => {
         message: 'Error: <%= error.message %>'
     });
 
-    return function(error) {
+    return error => {
         notifier(error);
         gutil.log(error);
         this.emit('end');
@@ -151,7 +151,7 @@ gulp.task('img:sprite', () => {
             from: './dist/styles.css',
             to: './dist/styles.css'
         })
-        .then(function(result) {
+        .then(result => {
             fs.writeFileSync('./dist/styles.css', result.css);
         });
 });

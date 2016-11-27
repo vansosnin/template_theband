@@ -6,7 +6,7 @@
 
     height: 964px;
 
-    background-image: url(./img/header_bg.png);
+    background: $mainColor url(./img/header_bg.png#main) center center no-repeat;
 }
 
 .header__right {
