@@ -1,5 +1,6 @@
 @import './variables';
 @import './mixins';
+$equalizerBarsCount: 8;
 
 @keyframes dance {
     from {
@@ -70,6 +71,12 @@
         animation-play-state: running;
         animation-timing-function: ease-in-out;
         animation-iteration-count: infinite;
-        animation-direction: alternate;
+        animation-direction: alternate-reverse;
+    }
+}
+
+@for $i from 1 through $equalizerBarsCount {
+    .equalizer__bar:nth-child(#{$i}) {
+        animation-delay: $i * 10ms + random(200);
     }
 }
