@@ -19,25 +19,6 @@
 
     cursor: pointer;
 
-    &:before {
-        content: '';
-
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-
-        width: 0;
-        height: 3px;
-
-        transition: width $transitionBaseTime $transitionBaseFunction;
-
-        background-color: $mainColor;
-    }
-
-    &:hover:before {
-        width: 100%;
-    }
-
     &:after {
         content: '';
 

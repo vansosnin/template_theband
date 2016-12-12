@@ -1,6 +1,16 @@
 @import './variables';
 @import './mixins';
 
+@keyframes dance {
+    from {
+        transform: scaleY(.1);
+    }
+
+    to {
+        transform: scaleY(1);
+    }
+}
+
 .menu {
     position: relative;
     top: 80px;
@@ -11,5 +21,55 @@
         @include menu-item();
 
         color: $accentedColor;
+    }
+}
+
+.equalizer {
+    position: absolute;
+    bottom: -15px;
+
+    display: none;
+
+    .menu-item--active & {
+        display: flex;
+
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+}
+
+.equalizer__bar {
+    display: inline-block;
+    width: 5px;
+    margin-left: 2px;
+
+    transition: transform $transitionBaseTime $transitionBaseFunction;
+    transform-origin: 0 0;
+
+    background-color: $mainColor;
+
+    &:first-child {
+        margin-left: 0;
+    }
+
+    &.equalizer__bar--min {
+        height: 6px;
+    }
+
+    &.equalizer__bar--mid {
+        height: 11px;
+    }
+
+    &.equalizer__bar--high {
+        height: 17px;
+    }
+
+    .menu-item--active:hover & {
+        animation-name: dance;
+        animation-duration: 400ms;
+        animation-play-state: running;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
     }
 }
