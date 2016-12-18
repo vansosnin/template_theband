@@ -136,9 +136,10 @@ gulp.task('img:copy', () => (
 ));
 
 gulp.task('img:sprite', () => {
+        /*
         const fs = require('fs');
         const postcss = require('postcss');
-        const sprites = require('postcss-sprites');
+        const sprites = require('postcss-sprites').default;
 
         const css = fs.readFileSync('./dist/styles.css', 'utf8');
         const opts = {
@@ -154,6 +155,7 @@ gulp.task('img:sprite', () => {
         .then(result => {
             fs.writeFileSync('./dist/styles.css', result.css);
         });
+        */
 });
 
 gulp.task('fonts:copy', () => (
