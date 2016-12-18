@@ -5,6 +5,7 @@
 
 ### Things to notice
 - Animated hover menu items
+- Animated hover on album
 
 
 ### TODO
